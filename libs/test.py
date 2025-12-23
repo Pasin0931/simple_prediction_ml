@@ -28,7 +28,7 @@ class drink_maker:
         return coffee, milk, coca, water
     
     def predict(self, c, mi, co, wa):
-        print(self.this_model.predict([[c, mi, co, wa]]))
+        print(self.this_model.predict([[c, mi, co, wa]])[0])
 
     def decision_tree_display(self):
         pyplt.figure(figsize=(7, 7))
