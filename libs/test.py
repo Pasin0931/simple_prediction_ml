@@ -1,6 +1,7 @@
 from sklearn.tree import DecisionTreeClassifier
 
 import sklearn.tree as sk_tree
+import matplotlib.pyplot as pyplt
 
 class drink_maker:
     def __init__(self):
@@ -30,5 +31,9 @@ class drink_maker:
         print(self.this_model.predict([[c, mi, co, wa]]))
 
     def decision_tree_display(self):
-        sk_tree.plot_tree(self.this_model)
+        pyplt.figure(figsize=(7, 7))
+        sk_tree.plot_tree(self.this_model, feature_names=["coffee", "milk", "coca", "water"],
+                          class_names=["Coffee", "Hot Chocolate", "Mocha", "None"],
+                          filled=True, rounded=True)
+        pyplt.show()
         
