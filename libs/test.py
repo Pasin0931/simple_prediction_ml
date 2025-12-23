@@ -1,5 +1,7 @@
 from sklearn.tree import DecisionTreeClassifier
 
+import sklearn.tree as sk_tree
+
 class drink_maker:
     def __init__(self):
         # coffee - milk - coca - water
@@ -10,6 +12,10 @@ class drink_maker:
             [0, 0, 0, 0]
         ]
         self.result = ["Coffee", "Hot Chocolate", "Mocha", "None"]
+
+        self.this_model = DecisionTreeClassifier()
+        self.this_model.fit(self.data_set, self.result)
+
         return None
     
     def check(self):
@@ -21,7 +27,8 @@ class drink_maker:
         return coffee, milk, coca, water
     
     def predict(self, c, mi, co, wa):
-        this_model = DecisionTreeClassifier()
-        this_model.fit(self.data_set, self.result)
+        print(self.this_model.predict([[c, mi, co, wa]]))
 
-        print(this_model.predict([[c, mi, co, wa]]))
+    def decision_tree_display(self):
+        sk_tree.plot_tree(self.this_model)
+        
