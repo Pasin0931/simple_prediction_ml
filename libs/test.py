@@ -14,14 +14,14 @@ class drink_maker:
     
     def check(self):
         coffee = int(input("Have coffee ? 0 or 1 -> "))
-        coca = int(input("Have coca ? 0 or 1 -> "))
         milk = int(input("Have milk ? 0 or 1 -> "))
+        coca = int(input("Have coca ? 0 or 1 -> "))
         water = int(input("Have water ? 0 or 1 -> "))
 
-        return coffee, coca, milk, water
+        return coffee, milk, coca, water
     
-    def predict(self, c, co, mi, wa):
+    def predict(self, c, mi, co, wa):
         this_model = DecisionTreeClassifier()
         this_model.fit(self.data_set, self.result)
 
-        print(this_model.predict([[c, co, mi, wa]]))
+        print(this_model.predict([[c, mi, co, wa]]))
