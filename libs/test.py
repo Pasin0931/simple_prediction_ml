@@ -8,22 +8,26 @@ class drink_maker:
         # coffee - milk - coca - water
         self.data_set = [
             [1, 0, 0, 1],
-            [0, 1, 1, 0],
-            [1, 1, 1, 0],
-            [0, 0, 0, 0]
+            [2, 0, 0, 2],
+            [0, 1, 1, 0],  
+            [0, 2, 2, 0],  
+            [1, 1, 1, 0],  
+            [2, 2, 1, 0],  
+            [0, 0, 0, 0],  
+            [0, 0, 0, 1],
         ]
-        self.result = ["Coffee", "Hot Chocolate", "Mocha", "None"]
+        self.result = ["Coffee", "Coffee", "Hot Chocolate", "Hot Chocolate", "Mocha", "Mocha", "None", "None"]
 
-        self.this_model = DecisionTreeClassifier()
+        self.this_model = DecisionTreeClassifier(max_depth=6, random_state=0)
         self.this_model.fit(self.data_set, self.result)
 
         return None
     
     def check(self):
-        coffee = int(input("Have coffee ? 0 or 1 -> "))
-        milk = int(input("Have milk ? 0 or 1 -> "))
-        coca = int(input("Have coca ? 0 or 1 -> "))
-        water = int(input("Have water ? 0 or 1 -> "))
+        coffee = int(input("Enter coffee amount -> "))
+        milk = int(input("Enter milk amount -> "))
+        coca = int(input("Enter coca amount -> "))
+        water = int(input("Enter water amount -> "))
 
         return coffee, milk, coca, water
     

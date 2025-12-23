@@ -6,3 +6,6 @@ coffee, milk, coca, water = baresta.check()
 baresta.predict(coffee, milk, coca, water)
 
 baresta.decision_tree_display()
+
+# Train / Test not yet (not done)
+# detect overfitting (not done)
